@@ -76,7 +76,7 @@ module ActionController
         return nil unless fragment
         fragments[name] = fragment
         expires = expiry_time(name)
-        return expires && expires > Time.now ? fragment : nil
+        return expires ? (expires > Time.now ? fragment : nil) : fragment
       end
 
       def read_meta_fragment(name)
